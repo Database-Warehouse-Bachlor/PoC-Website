@@ -1,9 +1,17 @@
 import React from 'react';
-import {BrowserRouter as  Router} from 'react-router-dom';
+import {Switch, BrowserRouter as  Router, Route} from 'react-router-dom';
 
 
 function App() {
-  return <> Hello World </>
+  return (
+    <Router>
+      <Switch>
+          <Route path="/" component={Login}  /> 
+          <Route path="/dashboard" component={Dashboard}  /> 
+      </Switch>
+      
+    </Router>
+  )
 }
 
 export default App;
