@@ -1,9 +1,10 @@
-import React, { PureComponent } from 'react';
+import React, { Component, PureComponent } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+
 
 const data = [
   {
-    name: 'Jan',
+    name: this.state.person.name.first,
     Out: 4000,
     In: 2400,
     amt: 2400,
@@ -47,7 +48,18 @@ const data = [
 ];
 
 export default class Example extends PureComponent {
-
+    state = {
+        loading: true,
+        person: null,
+    };
+    
+    
+    async componentDidMount() {
+    const url = "https://api.randomuser.me";
+    const response = await fetch(url)
+    const data1 = await response.json();
+    this.setState({person: data1.results[0], loading: false})
+    }
   render() {
     return (
       <BarChart

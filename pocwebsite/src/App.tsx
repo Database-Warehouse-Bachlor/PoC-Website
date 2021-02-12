@@ -7,6 +7,7 @@ import PieChart from "./Components/PieChart";
 import { Paper } from "@material-ui/core";
 import Dashboard from "./Pages/Dashboard";
 import Login from "./Pages/Login";
+import Api from "./Api"
 function App() {
   return (
     <Router>
@@ -44,7 +45,7 @@ function App() {
           </Grid>
           <Grid column={true} sm={12} md={4}>
             <Paper>
-            <PieChart/>
+            <Api/>
             </Paper>
           </Grid>
         </Grid>
