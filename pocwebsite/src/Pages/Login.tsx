@@ -15,15 +15,12 @@ export const Login: React.FC<Props> = () => {
         <Card>
             <CardHeader title="Login"/>
             <CardContent>
-                <Formik initialValues={{orgNr: "", APIKey= "",}} 
-                onSubmit{(data, {setSubmitting}) => {}}>
-                {({ values, errors}) =>(
-                    <Form>
-
-                    </Form>
-                )}
+                <Formik initialValues={{}}
+                onSubmit={() => {}}
+                >
                 </Formik>
             </CardContent>
         </Card>
     )
 }
+export default Login;
