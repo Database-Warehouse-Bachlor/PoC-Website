@@ -1,15 +1,16 @@
 import React from 'react';
 import {Switch, BrowserRouter as  Router, Route} from 'react-router-dom'; 
 import Grid from "./Components/Grid";
-import Login from './Pages/Login'
+import {Login} from './Pages/Login'
 import Dashboard from './Pages/Dashboard'
 
 function App() {
   return (
     <Router>
       <Switch>
-          <Route path="/" component={Login}  /> 
-          <Route path="/dashboard" component={Dashboard}  /> 
+          <Route path="/" exact component={Login}  /> 
+          <Route path="/dashboard" exact component={Dashboard} />
+          <Route path="/" render={() => <div>404</div>}/>
       </Switch>
       
       <Grid row={true}>
