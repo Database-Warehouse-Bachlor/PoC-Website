@@ -30,7 +30,7 @@ interface GridProps {
   sm?: GridSizes;
 }
 
-const Grid: React.SFC<GridProps> = (props) => {
+const Grid: React.FC<GridProps> = (props) => {
   const {
     alignItems,
     children,

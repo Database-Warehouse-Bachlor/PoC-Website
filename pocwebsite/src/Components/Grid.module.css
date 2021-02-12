@@ -1,9 +1,11 @@
 .row {
     display: flex;
     flex-flow: row wrap;
-    max-width: 75rem;
+    max-width: 90rem;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 10rem;
+    grid-row-gap: 20px;
   }
   
   .row.expanded {
@@ -40,8 +42,8 @@
   
   .column {
     flex: 1 1 0px;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     box-sizing: border-box;
   }
   

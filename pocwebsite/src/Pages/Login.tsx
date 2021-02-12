@@ -10,10 +10,11 @@ export const Login: React.FC<Props> = () => {
             <CardHeader title="Login"/>
             <CardContent>
                 <Formik initialValues={{}}
-                onSubmit{() => {}}
+                onSubmit={() => {}}
                 >
                 </Formik>
             </CardContent>
         </Card>
     )
 }
+export default Login;
