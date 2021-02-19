@@ -6,6 +6,8 @@ import {
   CircularProgress,
   TextField,
   Typography,
+  makeStyles,
+  Grid,
 } from "@material-ui/core";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
@@ -13,11 +15,27 @@ import { RouteComponentProps } from "react-router-dom";
 import "../Styles/Login.css";
 import { object, number, string } from "yup";
 
+
+const useStyles = makeStyles({
+  button: {
+    background: 'rgba(241, 103, 5)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+    boxShadow: '0 3px 5px 2px rgba(241, 103, 5), .3)',
+  },
+});
+
+
 interface Props extends RouteComponentProps {}
 
 export const Login: React.FC<Props> = ({ history }) => {
+  const classes = useStyles();
   return (
-    <Card>
+    <Grid container justify = "center">
+    <Card className="LoginCard">
       <CardHeader title="Login" className="Cardheader" />
       <CardContent>
         <Formik
@@ -49,7 +67,7 @@ export const Login: React.FC<Props> = ({ history }) => {
                   name="Orgnr"
                   type="number"
                   label="Orgnr"
-                  as={TextField}
+                  component={TextField}
                 />
               </div>
               <ErrorMessage name ="Orgnr">
@@ -58,7 +76,10 @@ export const Login: React.FC<Props> = ({ history }) => {
                 )}
               </ErrorMessage>
               <div>
-                <Field name="APIKey" label="API-Key" as={TextField} />
+                <Field 
+                name="APIKey" 
+                label="API-Key" 
+                component={TextField} />
                 <ErrorMessage name ="APIKey">
                 {message => (
                   <Typography color="error">{message}</Typography>
@@ -66,9 +87,9 @@ export const Login: React.FC<Props> = ({ history }) => {
               </ErrorMessage>
               </div>
               <Button
+                className={classes.button}
                 type="submit"
                 variant="contained"
-                color="primary"
                 disabled={isSubmitting}
                 startIcon={
                   isSubmitting ? <CircularProgress size="0.8rem" /> : undefined
@@ -76,13 +97,13 @@ export const Login: React.FC<Props> = ({ history }) => {
               >
                 {isSubmitting ? "Submitting" : "Login"}
               </Button>
-              <pre>{JSON.stringify({values, errors}, null, 4)}</pre>
             </Form>
           )}
           
         </Formik>
       </CardContent>
     </Card>
+    </Grid>
   );
 };
 export default Login;
