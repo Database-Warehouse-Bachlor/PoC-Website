@@ -40,11 +40,11 @@ export const Login: React.FC<Props> = ({ history }) => {
       <CardContent>
         <Formik
           initialValues={{
-            Orgnr: "",
+            Email: "",
             APIKey: "",
           }}
           validationSchema={object({
-            Orgnr: string().required().min(9, "Must be exactly 9 digits").max(9, "Must be exactly 9 digits"),
+            Email: string().required().email(),
             APIKey: string().required(),
           })}
           onSubmit={async (values) => {
@@ -64,13 +64,13 @@ export const Login: React.FC<Props> = ({ history }) => {
             <Form>
               <div>
                 <Field
-                  name="Orgnr"
-                  type="number"
-                  label="Orgnr"
-                  component={TextField}
+                  name="Email"
+                  type="Email"
+                  label="Email"
+                  as={TextField}
                 />
               </div>
-              <ErrorMessage name ="Orgnr">
+              <ErrorMessage name ="Email">
                 {message => (
                   <Typography color="error">{message}</Typography>
                 )}
@@ -79,7 +79,7 @@ export const Login: React.FC<Props> = ({ history }) => {
                 <Field 
                 name="APIKey" 
                 label="API-Key" 
-                component={TextField} />
+                as={TextField} />
                 <ErrorMessage name ="APIKey">
                 {message => (
                   <Typography color="error">{message}</Typography>
