@@ -5,8 +5,9 @@ import {
   CardHeader,
   CircularProgress,
   TextField,
+  Typography,
 } from "@material-ui/core";
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import { RouteComponentProps } from "react-router-dom";
 import "../Styles/Login.css";
@@ -51,8 +52,18 @@ export const Login: React.FC<Props> = ({ history }) => {
                   as={TextField}
                 />
               </div>
+              <ErrorMessage name ="Orgnr">
+                {message => (
+                  <Typography color="error">{message}</Typography>
+                )}
+              </ErrorMessage>
               <div>
                 <Field name="APIKey" label="API-Key" as={TextField} />
+                <ErrorMessage name ="APIKey">
+                {message => (
+                  <Typography color="error">{message}</Typography>
+                )}
+              </ErrorMessage>
               </div>
               <Button
                 type="submit"

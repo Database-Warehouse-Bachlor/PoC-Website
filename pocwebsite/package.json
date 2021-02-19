@@ -12,6 +12,7 @@
     "@types/react": "^17.0.1",
     "@types/react-dom": "^17.0.0",
     "formik": "^2.2.6",
+    "formik-material-ui": "^3.0.1",
     "material-paper": "0.0.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
