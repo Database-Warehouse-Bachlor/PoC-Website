@@ -13,7 +13,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import { RouteComponentProps } from "react-router-dom";
 import "../Styles/Login.css";
-import { object, number, string } from "yup";
+import { object, string } from "yup";
 
 
 const useStyles = makeStyles({
