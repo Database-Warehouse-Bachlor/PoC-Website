@@ -36,9 +36,13 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: '10px'
     },
     pcButtons: {
+      color: "white",
+      backgroundColor: "black",
+    },
+    buttonGrid: {
       display: "flex",
       flex: 1,
-    },
+    }
   })
 );
 
@@ -121,11 +125,11 @@ const Header: React.FC<Props> = ({ history }) => {
                 </Menu>
               </>
             ) : (
-              <div className={classes.pcButtons}>
+              <div className={classes.buttonContainer}>
                 {pageLinks.map((pageLink) => {
                   const { pageTitle, pageURL } = pageLink;
                   return (
-                    <Button onClick={() => handleMenuClick(pageURL)}>
+                    <Button variant="contained" onClick={() => handleMenuClick(pageURL)} className={classes.pcButtons}>
                       {pageTitle}
                     </Button>
                   );
