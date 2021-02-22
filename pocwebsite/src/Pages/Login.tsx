@@ -12,12 +12,12 @@ import {
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import { RouteComponentProps } from "react-router-dom";
-import "../Styles/Login.css";
 import { object, string } from "yup";
 
 
 const useStyles = makeStyles({
   button: {
+    marginTop: 18,
     background: 'rgba(241, 103, 5)',
     borderRadius: 3,
     border: 0,
@@ -25,6 +25,15 @@ const useStyles = makeStyles({
     height: 48,
     padding: '0 30px',
     boxShadow: '0 3px 5px 2px rgba(241, 103, 5), .3)',
+  },
+  loginForm: {
+    marginBottom: 18,
+  },
+  cardTitle: {
+    color: "#f16705",
+  },
+  loginCard: {
+    marginTop: 12,
   },
 });
 
@@ -34,9 +43,9 @@ interface Props extends RouteComponentProps {}
 export const Login: React.FC<Props> = ({ history }) => {
   const classes = useStyles();
   return (
-    <Grid container justify = "center">
+    <Grid container justify = "center" className={classes.loginCard}>
     <Card className="LoginCard">
-      <CardHeader title="Login" className="Cardheader" />
+      <CardHeader title="Login" className={classes.cardTitle} />
       <CardContent>
         <Formik
           initialValues={{
@@ -62,7 +71,7 @@ export const Login: React.FC<Props> = ({ history }) => {
         >
           {({ values, errors, isSubmitting }) => (
             <Form>
-              <div>
+              <div className={classes.loginForm}>
                 <Field
                   name="Email"
                   type="Email"
@@ -75,7 +84,7 @@ export const Login: React.FC<Props> = ({ history }) => {
                   <Typography color="error">{message}</Typography>
                 )}
               </ErrorMessage>
-              <div>
+              <div className={classes.loginForm}>
                 <Field 
                 name="APIKey" 
                 label="API-Key" 
@@ -97,6 +106,7 @@ export const Login: React.FC<Props> = ({ history }) => {
               >
                 {isSubmitting ? "Submitting" : "Login"}
               </Button>
+
             </Form>
           )}
           
